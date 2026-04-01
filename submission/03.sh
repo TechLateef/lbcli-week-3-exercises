@@ -8,4 +8,4 @@ address2=$(echo $rawTransaction | jq -r '.vin[1].txinwitness[1]')
 address3=$(echo $rawTransaction | jq -r '.vin[2].txinwitness[1]')
 address4=$(echo $rawTransaction | jq -r '.vin[3].txinwitness[1]')
 
-bitcoin-cli -regtest addmultisigaddress 1 "[\"$address1\",\"$address2\",\"$address3\",\"$address4\"]" | jq -r '.address'
+bitcoin-cli -regtest createmultisig 1 "[\"$address1\",\"$address2\",\"$address3\",\"$address4\"]" | jq -r '.address'
